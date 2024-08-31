@@ -1,0 +1,38 @@
+@startuml
+interface app.UserRepository {
+~ void addUser(User)
+~ void removeUser(User)
+~ User getUser(String)
+~ List<User> getUsers()
+}
+
+class app.UserRepositoryImpl {
+- List<User> users
++ void addUser(User)
++ void removeUser(User)
++ User getUser(String)
++ List<User> getUsers()
+}
+
+
+class app.UserManagementSystem {
++ {static} void main(String[])
+}
+
+class app.User {
+- String name
+- String email
+- String password
++ String getName()
++ void setName(String)
++ String getEmail()
++ void setEmail(String)
++ String getPassword()
++ void setPassword(String)
+}
+
+
+
+
+app.UserRepository <|.. app.UserRepositoryImpl
+@enduml
